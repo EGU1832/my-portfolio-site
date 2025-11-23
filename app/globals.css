@@ -24,3 +24,132 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* app/globals.css */
+
+.section-title {
+  @apply text-lg font-semibold tracking-wide text-[#e3f2e6];
+}
+
+/* -----------------------------
+   ChatGPT Markdown Base
+------------------------------ */
+.markdown-body {
+  color: #e6e6e6;
+  font-size: 16px;
+  line-height: 1.65;
+  padding: 0.5rem 0;
+  overflow-wrap: break-word;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4 {
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.8em;
+}
+
+.markdown-body h1 { font-size: 1.9rem; }
+.markdown-body h2 { font-size: 1.6rem; }
+.markdown-body h3 { font-size: 1.3rem; }
+
+.markdown-body p {
+  margin: 0.8em 0;
+}
+
+/* -----------------------------
+   Lists
+------------------------------ */
+.markdown-body ul,
+.markdown-body ol {
+  margin: 0.8em 0 0.8em 1.4em;
+}
+
+/* -----------------------------
+   Blockquote (ChatGPT style)
+------------------------------ */
+.markdown-body blockquote {
+  border-left: 4px solid #444;
+  padding-left: 1em;
+  margin-left: 0;
+  color: #aaa;
+  font-style: italic;
+}
+
+/* -----------------------------
+   ChatGPT-style Code Blocks
+------------------------------ */
+.markdown-body pre {
+  background: #1e1e1e !important;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1.2rem 0;
+  border: 1px solid #333;
+}
+
+.markdown-body pre code {
+  font-family: Menlo, Consolas, monospace;
+  font-size: 0.95rem;
+  white-space: pre;
+  background: none !important;
+  padding: 0;
+  line-height: 1.5;
+}
+
+/* highlight.js background 제거 */
+.hljs {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* inline code */
+.markdown-body code {
+  background: rgba(255,255,255,0.12);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+}
+
+/* -----------------------------
+   Images
+------------------------------ */
+.markdown-body img {
+  margin: 1rem auto;
+  border-radius: 6px;
+  display: block;
+  max-width: 100%;
+}
+
+/* -----------------------------
+   Tables (ChatGPT style)
+------------------------------ */
+.markdown-body table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.markdown-body th,
+.markdown-body td {
+  border: 1px solid #444;
+  padding: 8px 12px;
+}
+
+.markdown-body th {
+  background: #2a2a2a;
+  font-weight: bold;
+}
+
+/* -----------------------------
+   MathJax (Matches ChatGPT)
+------------------------------ */
+.math-display {
+  display: block;
+  text-align: center;
+  margin: 1.2rem 0;
+  font-size: 1.1rem;
+}
