@@ -1,24 +1,13 @@
 import MarkdownIt from "markdown-it";
-import mathjax3 from "markdown-it-mathjax3";
 import hljs from "highlight.js";
+import katex from "katex";
+import { katex as mdKatex } from "@mdit/plugin-katex";
+
 import "highlight.js/styles/atom-one-dark.css";
-
-// MathJax script loader
-function loadMathJax() {
-  if (typeof window === "undefined") return;
-
-  if (!document.getElementById("mathjax-script")) {
-    const script = document.createElement("script");
-    script.id = "mathjax-script";
-    script.async = true;
-    script.src =
-      "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
-    document.head.appendChild(script);
-  }
-}
+import "katex/dist/katex.min.css";
 
 export default function MarkdownRenderer({ markdown }: { markdown: string }) {
-  // highlight.js hook
+  // highlight.js
   const highlight = (str: string, lang: string) => {
     if (lang && hljs.getLanguage(lang)) {
       return `<pre><code class="hljs">${hljs.highlight(str, { language: lang }).value}</code></pre>`;
@@ -26,27 +15,43 @@ export default function MarkdownRenderer({ markdown }: { markdown: string }) {
     return `<pre><code class="hljs">${MarkdownIt().utils.escapeHtml(str)}</code></pre>`;
   };
 
-  // MarkdownIt initialization
+  // MarkdownIt
   const md = new MarkdownIt({
     html: true,
     breaks: true,
     linkify: true,
     typographer: true,
     highlight,
-  }).use(mathjax3);
+  });
 
-  // Handle ```math blocks like ChatGPT
+  // KaTeX plugin
+  md.use(mdKatex, {
+    // **옵션 설정 가능**
+    // throwOnError: false,
+    // errorColor: "red",
+  });
+
+  function normalizeMathEscapes(md: string) {
+    return md.replace(/\$`([^`]+)`\$/g, (_match, inner) => `$${inner}$`);
+  }
+  
+  // ChatGPT 스타일 ```math 지원
   const defaultFence = md.renderer.rules.fence!;
   md.renderer.rules.fence = (tokens, idx, options, env, self) => {
     const token = tokens[idx];
+    const info = token.info.trim();
 
-    if (token.info.trim() === "math") {
-      return `<div class="math-display">\\[\n${token.content}\n\\]</div>`;
+    // ChatGPT-style ```math block
+    if (info === "math") {
+      return katex.renderToString(token.content, {
+        throwOnError: false,
+        displayMode: true,
+      });
     }
     return defaultFence(tokens, idx, options, env, self);
   };
 
-  // Convert Docs/img → GitHub RAW URLs
+  // GitHub RAW 이미지 변환
   const transformImage = (html: string) =>
     html.replace(/<img\s+[^>]*src=["']([^"']+)["'][^>]*>/gi, (match, src) => {
       if (/https?:\/\//i.test(src)) return match;
@@ -59,22 +64,13 @@ export default function MarkdownRenderer({ markdown }: { markdown: string }) {
       return match.replace(src, rawURL);
     });
 
-  // Render Markdown
-  let html = md.render(markdown);
+  let processedMarkdown = normalizeMathEscapes(markdown);
+  let html = md.render(processedMarkdown);
   html = transformImage(html);
-
-  // MathJax typeset
-  if (typeof window !== "undefined") {
-    loadMathJax();
-    setTimeout(() => {
-      const mj = (window as any).MathJax;
-      if (mj?.typesetPromise) mj.typesetPromise();
-    }, 30);
-  }
 
   return (
     <div
-      className="markdown-body" // ← ChatGPT 스타일을 적용하는 핵심
+      className="markdown-body"
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );
