@@ -31,7 +31,7 @@ export default function NoteModal({
           </button>
         </div>
 
-        <div className="p-4 overflow-y-auto grow custom-scroll text-sm sm:text-base">
+        <div className="p-4 overflow-y-auto grow custom-scroll text-xs sm:text-sm md:text-base">
           <MarkdownRenderer markdown={markdown} />
         </div>
       </div>
