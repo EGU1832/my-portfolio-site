@@ -174,6 +174,7 @@ export default function Home() {
               demoVideo="obsidian-to-github-md_demo.gif"
               github="https://github.com/EGU1832/obsidian-to-github-md"
               readmeSummary={`v2.1.0 (Release) — Obsidian-style Markdown is converted and previewed safely with LaTeX & code highlighting.`}
+              website="https://egu1832.github.io/obsidian-to-github-md/"
             />
 
             {/* ===================== 2) Dual PDF Viewer ===================== */}
@@ -190,6 +191,7 @@ export default function Home() {
               demoVideo="dual-pdf-viewer_demo.gif"
               github="https://github.com/EGU1832/dual-pdf-viewer"
               readmeSummary={`v1.3.0 (Release) — Side-by-side PDF comparison with synchronized scrolling and advanced controls.`}
+              website="https://egu1832.github.io/dual-pdf-viewer/"
             />
 
             {/* ===================== 3) Remote Scroll — Gesture Auto Scroller ===================== */}

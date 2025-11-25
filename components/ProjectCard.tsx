@@ -9,6 +9,7 @@ type ProjectProps = {
   demoVideo?: string;   // 데모 영상
   github?: string;      // GitHub 링크
   readmeSummary?: string; // README 요약
+  website?: string;    // 웹사이트 링크
 };
 
 export default function ProjectCard({
@@ -19,6 +20,7 @@ export default function ProjectCard({
   demoVideo,
   github,
   readmeSummary,
+  website,
 }: ProjectProps) {
   return (
     <div className="rounded-2xl border border-[#4f6f58]/40 bg-[#101711] p-6 space-y-4">
@@ -85,16 +87,34 @@ export default function ProjectCard({
       )}
 
 
-      {/* GitHub 링크 */}
-      {github && (
-        <a
-          href={github}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-block mt-3 text-xs text-[#9fd3a8] underline-offset-2 hover:underline"
-        >
-          View on GitHub →
-        </a>
+      {/* 프로젝트 링크들 */}
+      {(github || website) && (
+        <div className="flex items-center gap-4 mt-4">
+
+          {/* GitHub 링크 */}
+          {github && (
+            <a
+              href={github}
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs text-[#9fd3a8] underline-offset-2 hover:underline"
+            >
+              GitHub →
+            </a>
+          )}
+
+          {/* Website 링크 */}
+          {website && (
+            <a
+              href={website}
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs text-[#9fd3a8] underline-offset-2 hover:underline"
+            >
+              Website →
+            </a>
+          )}
+        </div>
       )}
     </div>
   );
