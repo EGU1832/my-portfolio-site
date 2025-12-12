@@ -5,11 +5,13 @@ type ProjectProps = {
   title: string;
   description: string;
   techBadges?: string[];
-  icon?: string;        // 프로젝트 아이콘 (png/svg)
-  demoVideo?: string;   // 데모 영상
-  github?: string;      // GitHub 링크
-  readmeSummary?: string; // README 요약
-  website?: string;    // 웹사이트 링크
+  icon?: string;
+  demoVideo?: string;
+  github?: string;
+  readmeSummary?: string;
+  website?: string;
+  videoWidth?: number | string;
+  videoHeight?: number | string;
 };
 
 export default function ProjectCard({
@@ -21,7 +23,15 @@ export default function ProjectCard({
   github,
   readmeSummary,
   website,
+  videoWidth,
+  videoHeight,
 }: ProjectProps) {
+
+  const mediaStyle = {
+    width: videoWidth ?? "100%",
+    height: videoHeight ?? "auto",
+  };
+
   return (
     <div className="rounded-2xl border border-[#4f6f58]/40 bg-[#101711] p-6 space-y-4">
       
@@ -36,7 +46,7 @@ export default function ProjectCard({
           />
         </div>
       )}
-      
+
       {/* 타이틀 */}
       <h3 className="text-lg font-semibold text-[#e3f2e6]">{title}</h3>
 
@@ -67,18 +77,22 @@ export default function ProjectCard({
       {/* 데모 영상 또는 GIF */}
       {demoVideo && (
         <>
-          {demoVideo.toLowerCase().endsWith(".gif") ? (
-            // GIF → 이미지로 표시
+          {[".gif", ".png", ".jpg", ".jpeg"].some(ext =>
+            demoVideo.toLowerCase().endsWith(ext)
+          ) ? (
+            // GIF/PNG/JPG → 이미지로 표시
             <img
               src={`/projects/${demoVideo}`}
               alt={`${title} demo`}
-             className="mt-7 w-full max-w-md h-auto rounded-xl border border-[#4f6f58]/40 mx-auto"
+              style={mediaStyle}
+              className="mt-7 rounded-xl border border-[#4f6f58]/40 mx-auto"
             />
           ) : (
             // mp4 → video 태그 사용
             <video
               controls
-              className="mt-4 w-full max-w-md h-auto rounded-xl border border-[#4f6f58]/40 mx-auto"
+              style={mediaStyle}
+              className="mt-4 rounded-xl border border-[#4f6f58]/40 mx-auto"
             >
               <source src={`/projects/${demoVideo}`} type="video/mp4" />
             </video>
@@ -86,12 +100,10 @@ export default function ProjectCard({
         </>
       )}
 
-
       {/* 프로젝트 링크들 */}
       {(github || website) && (
         <div className="flex items-center gap-4 mt-4">
 
-          {/* GitHub 링크 */}
           {github && (
             <a
               href={github}
@@ -103,7 +115,6 @@ export default function ProjectCard({
             </a>
           )}
 
-          {/* Website 링크 */}
           {website && (
             <a
               href={website}
