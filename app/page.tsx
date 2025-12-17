@@ -2,6 +2,7 @@
 import Image from "next/image";
 import ProjectCard from "@/components/ProjectCard";
 import ArchiveSection from "@/components/ArchiveSection";
+import ProfileCat from "@/components/ProfileCat";
 
 export default function Home() {
   return (
@@ -11,16 +12,8 @@ export default function Home() {
         {/* ===== HERO SECTION ===== */}
         <section className="flex flex-col gap-8 py-16 md:flex-row md:items-center">
           {/* 왼쪽: 픽셀 고양이 */}
-          <div className="flex justify-center md:w-1/3">
-            <div className="relative h-40 w-40 overflow-hidden rounded-2xl border border-[#4f6f58]/40 bg-[#18251c]">
-              <Image
-                src="/images/Profile_v1_lite.png"
-                alt="Pixel black cat"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
+          <div className="relative flex flex-col items-center md:w-1/3">
+            <ProfileCat />
           </div>
 
           {/* 오른쪽: 소개 텍스트 */}
