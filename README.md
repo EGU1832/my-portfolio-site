@@ -7,8 +7,8 @@
 <h3 align="center">My Portfolio Site</h3>
 
 <p align="center">
-  A Interactive Portfolio Site of SeoIm Choi —<br>
-  You can explore Resume(Now developing), Team or Toy Projects, Study Notes, Digital Art Gallery(Now developing).<br><br>
+  An Interactive Portfolio Site of SeoIm Choi —<br>
+  You can explore (Resume), Team or Toy Projects, Study Notes, (Digital Art Gallery).<br><br>
   <b>v1.0.0 (Release)</b>
   <br>
   <a href="https://egu1832.vercel.app"><strong>Open Live Demo »</strong></a>
