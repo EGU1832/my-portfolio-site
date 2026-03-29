@@ -23,7 +23,7 @@ export default function Home() {
             </p>
             <h1 className="mt-2 text-3xl font-semibold leading-snug md:text-4xl">
               Hi, I&apos;m{" "}
-              <span className="text-[#9fd3a8]">EGU1832</span>, a programmer
+              <span className="text-[#9fd3a8]">SeoIm Choi</span>, a programmer
               working at the intersection of creativity and engineering.
             </h1>
             <p className="mt-4 max-w-xl text-sm text-[#cbd5ce]">
