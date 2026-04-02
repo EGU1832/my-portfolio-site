@@ -151,7 +151,7 @@ export default function Home() {
                 "https://img.shields.io/badge/OpenGL-5586A4?style=for-the-badge&logo=opengl&logoColor=white",
                 "https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white",
               ]}
-              demoVideo="sg-opengl-2d-affine-transform_demo.gif"
+              demoVideo="sg-opengl-2d-affine-transform_demo.webm"
               videoWidth={540}
               videoHeight="auto"
               github="https://github.com/EGU1832/sg-opengl-2d-affine-transform"
@@ -172,7 +172,7 @@ export default function Home() {
                 "https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black",
                 "https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"
               ]}
-              demoVideo="Jarvision_demo.mp4"
+              demoVideo="Jarvision_demo.webm"
               videoWidth={540}
               videoHeight="auto"
               github="https://github.com/Jarvision-AIoT/vision-module"
@@ -224,7 +224,7 @@ export default function Home() {
                 "https://img.shields.io/badge/Markdown_it-000000?style=for-the-badge&logo=markdown&logoColor=white"
               ]}
               icon="obsidian-to-github-md_icon.png"
-              demoVideo="obsidian-to-github-md_demo.gif"
+              demoVideo="obsidian-to-github-md_demo.webm"
               videoWidth={448}
               videoHeight="auto"
               github="https://github.com/EGU1832/obsidian-to-github-md"
@@ -243,7 +243,7 @@ export default function Home() {
                 "https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black",
               ]}
               icon="dual-pdf-viewer_icon.png"
-              demoVideo="dual-pdf-viewer_demo.gif"
+              demoVideo="dual-pdf-viewer_demo.webm"
               videoWidth={448}
               videoHeight="auto"
               github="https://github.com/EGU1832/dual-pdf-viewer"
@@ -263,7 +263,7 @@ export default function Home() {
                 "https://img.shields.io/badge/Material_Design_3-4285F4?style=for-the-badge&logo=materialdesign&logoColor=white",
               ]}
               icon="remote-scroll_icon.png"
-              demoVideo="remote-scroll_demo.gif"
+              demoVideo="remote-scroll_demo.webm"
               videoWidth={448}
               videoHeight="auto"
               github="https://github.com/EGU1832/remote-scroll"

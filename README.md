@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://egu1832.vercel.app">
-    <img src="assets/pngs/icon.png" alt="My Portfolio Site Icon" width="180" style="border-radius: 20px;">
+    <img src="assets/png/icon.png" alt="My Portfolio Site Icon" width="180" style="border-radius: 20px;">
   </a>
 </p>
 
@@ -23,7 +23,7 @@
 ## Demo
 
 <p align="center">
-  <img src="assets/pngs/demo.png" alt="My Portfolio Site Demo" width="600">
+  <img src="assets/png/demo.png" alt="My Portfolio Site Demo" width="600">
 </p>
 
 

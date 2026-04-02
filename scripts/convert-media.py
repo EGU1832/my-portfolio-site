@@ -2,12 +2,13 @@ import os
 import subprocess
 import shutil
 
-GIF_DIR = "./assets/gifs"
+INPUT_DIR = "./assets/gifs"   # GIF + MP4 모두 여기에 넣는다고 가정
 WEBM_DIR = "./assets/webm"
 PUBLIC_DIR = "./public/projects"
 
 os.makedirs(WEBM_DIR, exist_ok=True)
 os.makedirs(PUBLIC_DIR, exist_ok=True)
+
 
 def convert(input_path, output_path):
     command = [
@@ -31,7 +32,7 @@ def convert(input_path, output_path):
     )
 
     if result.returncode != 0:
-        print(f"[!] Conversion failed: {input_path}")
+        print("Conversion failed:", input_path)
         print(result.stderr)
         return False
 
@@ -41,37 +42,40 @@ def convert(input_path, output_path):
 def main():
     print("Current directory:", os.getcwd())
 
-    if not os.path.exists(GIF_DIR):
-        print(f"[!] GIF directory not found: {GIF_DIR}")
+    if not os.path.exists(INPUT_DIR):
+        print("Input directory not found:", INPUT_DIR)
         return
 
-    files = os.listdir(GIF_DIR)
-    gif_files = [f for f in files if f.lower().endswith(".gif")]
+    files = os.listdir(INPUT_DIR)
 
-    print(f"Found GIF files: {len(gif_files)}")
+    # GIF + MP4 둘 다 처리
+    target_files = [
+        f for f in files
+        if f.lower().endswith(".gif") or f.lower().endswith(".mp4")
+    ]
 
-    if not gif_files:
-        print("[!] There are no GIF files to convert.")
+    print("Found files:", len(target_files))
+
+    if not target_files:
+        print("No files to convert.")
         return
 
-    for file in gif_files:
-        gif_path = os.path.join(GIF_DIR, file)
+    for file in target_files:
+        input_path = os.path.join(INPUT_DIR, file)
         webm_name = os.path.splitext(file)[0] + ".webm"
         webm_path = os.path.join(WEBM_DIR, webm_name)
         public_path = os.path.join(PUBLIC_DIR, webm_name)
 
-        # 이미 변환된 경우 skip
         if os.path.exists(webm_path) and os.path.getsize(webm_path) > 1000:
-            print(f"Already exists: {webm_name}")
+            print("Already exists:", webm_name)
         else:
-            print(f"Converting: {file} → {webm_name}")
-            success = convert(gif_path, webm_path)
+            print("Converting:", file, "->", webm_name)
+            success = convert(input_path, webm_path)
             if not success:
                 continue
 
-        # public 복사
         shutil.copy(webm_path, public_path)
-        print(f"Copy complete → public/projects/{webm_name}")
+        print("Copied to public/projects:", webm_name)
 
     print("Done")
 
