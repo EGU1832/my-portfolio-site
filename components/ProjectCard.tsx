@@ -22,12 +22,18 @@ function SmartMedia({ src, title, style }: any) {
   const [isVisible, setIsVisible] = useState(false)
   const isVideo = src.endsWith(".mp4") || src.endsWith(".webm")
 
+  // poster 경로 자동 생성
+  const baseName = src.replace(/\.(mp4|webm)$/i, "")
+const posterSrc = `/projects/thumbs/${baseName}.webp`
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting)
       },
-      { threshold: 0.3 }
+      {
+        threshold: 0.3,
+        rootMargin: "200px" // 미리 로딩
+      }
     )
 
     if (videoRef.current) observer.observe(videoRef.current)
@@ -45,7 +51,7 @@ function SmartMedia({ src, title, style }: any) {
     }
   }, [isVisible])
 
-  // Image (GIF/PNG/JPG) - Intersection Observer 불필요
+  // 이미지
   if (!isVideo) {
     return (
       <img
@@ -58,7 +64,7 @@ function SmartMedia({ src, title, style }: any) {
     )
   }
 
-  // Video (mp4/webm) - Intersection Observer로 자동 재생/일시정지
+  // 비디오
   return (
     <video
       ref={videoRef}
@@ -66,6 +72,7 @@ function SmartMedia({ src, title, style }: any) {
       loop
       playsInline
       preload="none"
+      poster={posterSrc}
       style={style}
       className="mt-4 rounded-xl border border-[#4f6f58]/40 mx-auto"
     >
@@ -104,6 +111,7 @@ export default function ProjectCard({
             src={`/projects/${icon}`}
             alt={`${title} icon`}
             fill
+            sizes="256px"
             className="object-contain"
           />
         </div>

@@ -127,6 +127,7 @@ export default function ProfileCat() {
           src="/images/Profile_v1_lite.png"
           alt="Pixel black cat"
           fill
+          sizes="256px"
           priority
           className={`
             object-cover transition-all duration-300
