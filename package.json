@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "convert-media": "py scripts/convert-media.py"
   },
   "dependencies": {
     "@mdit/plugin-katex": "^0.23.2",

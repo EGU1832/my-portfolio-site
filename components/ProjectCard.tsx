@@ -1,5 +1,6 @@
 // components/ProjectCard.tsx
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react"
 
 type ProjectProps = {
   title: string;
@@ -13,6 +14,65 @@ type ProjectProps = {
   videoWidth?: number | string;
   videoHeight?: number | string;
 };
+
+function SmartMedia({ src, title, style }: any) {
+  const videoRef = useRef<HTMLVideoElement | null>(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const isVideo = src.endsWith(".mp4") || src.endsWith(".webm")
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting)
+      },
+      { threshold: 0.3 }
+    )
+
+    if (videoRef.current) observer.observe(videoRef.current)
+
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!videoRef.current || !isVideo) return
+
+    if (isVisible) {
+      videoRef.current.play().catch(() => {})
+    } else {
+      videoRef.current.pause()
+    }
+  }, [isVisible])
+
+  // Image (GIF/PNG/JPG) - Intersection Observer 불필요
+  if (!isVideo) {
+    return (
+      <img
+        src={`/projects/${src}`}
+        alt={`${title} demo`}
+        loading="lazy"
+        style={style}
+        className="mt-7 rounded-xl border border-[#4f6f58]/40 mx-auto"
+      />
+    )
+  }
+
+  // Video (mp4/webm) - Intersection Observer로 자동 재생/일시정지
+  return (
+    <video
+      ref={videoRef}
+      muted
+      loop
+      playsInline
+      preload="none"
+      style={style}
+      className="mt-4 rounded-xl border border-[#4f6f58]/40 mx-auto"
+    >
+      {isVisible && (
+        <source src={`/projects/${src}`} type="video/mp4" />
+      )}
+    </video>
+  )
+}
 
 export default function ProjectCard({
   title,
@@ -76,28 +136,11 @@ export default function ProjectCard({
 
       {/* 데모 영상 또는 GIF */}
       {demoVideo && (
-        <>
-          {[".gif", ".png", ".jpg", ".jpeg"].some(ext =>
-            demoVideo.toLowerCase().endsWith(ext)
-          ) ? (
-            // GIF/PNG/JPG → 이미지로 표시
-            <img
-              src={`/projects/${demoVideo}`}
-              alt={`${title} demo`}
-              style={mediaStyle}
-              className="mt-7 rounded-xl border border-[#4f6f58]/40 mx-auto"
-            />
-          ) : (
-            // mp4 → video 태그 사용
-            <video
-              controls
-              style={mediaStyle}
-              className="mt-4 rounded-xl border border-[#4f6f58]/40 mx-auto"
-            >
-              <source src={`/projects/${demoVideo}`} type="video/mp4" />
-            </video>
-          )}
-        </>
+        <SmartMedia
+          src={demoVideo}
+          title={title}
+          style={mediaStyle}
+        />
       )}
 
       {/* 프로젝트 링크들 */}
