@@ -44,7 +44,7 @@ yarn-error.log*
 next-env.d.ts
 
 # Cursor
-/.cursor/
+.cursor/*
 
 # Resume (private)
-/assets/resume/
+assets/resume/*
