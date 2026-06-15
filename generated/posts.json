@@ -1,0 +1,170 @@
+[
+  {
+    "slug": "CSE3081",
+    "title": "CSE3081",
+    "excerpt": "Syllabus <br> 담당 조교: 조성훈 조교님 - E. <br> 교재: - <br> Schedule: <img src=\"Docs/Pasted image 20250703125755.png\" width=\"600\"> <br> 0. Introduction <br> Algorithms: Design and Analysis <...",
+    "autoTags": [
+      "Algorithm",
+      "Systems",
+      "Math"
+    ],
+    "tags": [
+      "Algorithm",
+      "Systems",
+      "Math"
+    ],
+    "sourcePath": "CSE3081.md"
+  },
+  {
+    "slug": "CSE4010",
+    "title": "CSE4010",
+    "excerpt": "컴퓨터 아키텍처 <br> AP: applicatio proccess 컴퓨터 아키텍처의 목표는 하드웨어와 소프트웨어 사이의 상호작용을 배우고, 컴퓨터의 기능을 이해하는 것이다. 컴퓨터 design에 대한 기본 지식들을 배우며, 현재 컴퓨터의 구조와 트렌드에 대해서 배운다. <br> 컴퓨터 아키텍처의 주요 목차는 다음과 같다...",
+    "autoTags": [
+      "Algorithm",
+      "Gpu",
+      "Network",
+      "Systems"
+    ],
+    "tags": [
+      "Algorithm",
+      "Gpu",
+      "Network",
+      "Systems"
+    ],
+    "sourcePath": "CSE4010.md"
+  },
+  {
+    "slug": "CSE4100",
+    "title": "CSE4100",
+    "excerpt": "시스템 프로그래밍 <br> [[CSAPP] 포스팅을 시작하며.. (tistory.com)](https://it-eldorado.tistory.com/32) <br> 본 교과목은 **컴퓨터 시스템 소프트웨어의 기본적인 개념** 및 **구체적인 설계**와 **구현 방법**을 프로젝트 진행 위주로 학습한다. 이를 통해 컴퓨터...",
+    "autoTags": [
+      "Gpu",
+      "Network",
+      "Systems"
+    ],
+    "tags": [
+      "Gpu",
+      "Network",
+      "Systems"
+    ],
+    "sourcePath": "CSE4100.md"
+  },
+  {
+    "slug": "CSE4104",
+    "title": "CSE4104",
+    "excerpt": "해킹및정보보안 <br> Introduction <br> 별도의 교재는 따로 존재하지 않는다. 선수 과목: C, Python, CSE3030(컴퓨터시스템개론) , CSE4100(시스템프로그래밍) <br> - 과제에 사용하는 것은 **기본적으로 허용**이 된다. - 다만, 허용이 된다라는 것이 쓰기를 권장하는 것은 **절대...",
+    "autoTags": [
+      "Gpu",
+      "Security",
+      "Network",
+      "Systems"
+    ],
+    "tags": [
+      "Gpu",
+      "Security",
+      "Network",
+      "Systems"
+    ],
+    "sourcePath": "CSE4104.md"
+  },
+  {
+    "slug": "CSE4170",
+    "title": "CSE4170",
+    "excerpt": "0. What is Graphics? <br> - 글로벌 스탠다드~ - 3D 컴퓨터 그래픽스에 관해서 일을 할 때 필요한 것 - 3D 렌더링 파이프라인 - 밑바닥까지 알아놓으면 나중에 직장 다닐 때 좋을 것이다. - Ray tracing 계산 과정 - 가상현실/증강현실/혼합현실 등 에서의 real-time 렌더링 issu...",
+    "autoTags": [
+      "Graphics",
+      "Gpu",
+      "Network",
+      "Systems",
+      "Math"
+    ],
+    "tags": [
+      "Graphics",
+      "Gpu",
+      "Network",
+      "Systems",
+      "Math"
+    ],
+    "sourcePath": "CSE4170.md"
+  },
+  {
+    "slug": "CSE4175",
+    "title": "CSE4175",
+    "excerpt": "컴퓨터 네트워크 <br> 컴퓨터에서 중요한 분야는 뭘까? 순서대로 나열해보자. 나무가 뿌리를 내리고 줄기가 뻗어나가는 그림을 상상하면서 보자. 알고리즘, OS, 아키텍처, 그래픽, 네트워크 통신, DB.. <br> 컴퓨터 네트워크란 무엇인가? 교재: Computer Networking - A Top-Down Approac...",
+    "autoTags": [
+      "Algorithm",
+      "Security",
+      "Network",
+      "Systems"
+    ],
+    "tags": [
+      "Algorithm",
+      "Security",
+      "Network",
+      "Systems"
+    ],
+    "sourcePath": "CSE4175.md"
+  },
+  {
+    "slug": "CSE6449",
+    "title": "CSE6449",
+    "excerpt": "실시간 렌더링 <br> Reflection Refraction Diffuse <br> Reflect + Transmit (Diffuse / Refract) <br> <br> 빛이 들어와서 일부는 반사되는데 에너지 보존의 법칙에 의해서 1이라는 빛이 들어오면 반사되는 양과 투과되는 빛의 양이 총합 1이여야 할 것이다. <b...",
+    "autoTags": [
+      "Algorithm",
+      "Graphics",
+      "Gpu",
+      "Network",
+      "Systems",
+      "Math"
+    ],
+    "tags": [
+      "Algorithm",
+      "Graphics",
+      "Gpu",
+      "Network",
+      "Systems",
+      "Math"
+    ],
+    "sourcePath": "CSE6449.md"
+  },
+  {
+    "slug": "CSEG483",
+    "title": "CSEG483",
+    "excerpt": "기초 GPU 프로그래밍 <br> Register, Cache <br> CUDA 설치 시 directory를 :C\\usr\\local\\CUDA 를 만들고 여기다 설치 github 12.2\\samples\\원하는코드 <br> 최종 목표: 2주에 걸쳐 marchingCudas 코드 분석 <br> driver가 아니라 runtime...",
+    "autoTags": [
+      "Algorithm",
+      "Graphics",
+      "Gpu",
+      "Network",
+      "Systems",
+      "Math"
+    ],
+    "tags": [
+      "Algorithm",
+      "Graphics",
+      "Gpu",
+      "Network",
+      "Systems",
+      "Math"
+    ],
+    "sourcePath": "CSEG483.md"
+  },
+  {
+    "slug": "glTF",
+    "title": "glTF",
+    "excerpt": "glTF > 3장면과 모델을 표현하는 file format으로 JSON 표준에 기반한다. > Audio의 MP3, Video의 H.264, Images의 JPEG, 3D의 glTF라고 생각하면 된다. <br> glTF 2.0 Scene Description Stucture <img src=\"https://www.khron...",
+    "autoTags": [
+      "Graphics",
+      "Gpu",
+      "Network",
+      "Math"
+    ],
+    "tags": [
+      "Graphics",
+      "Gpu",
+      "Network",
+      "Math"
+    ],
+    "sourcePath": "glTF.md"
+  }
+]

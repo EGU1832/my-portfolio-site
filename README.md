@@ -8,8 +8,8 @@
 
 <p align="center">
   An Interactive Portfolio Site of SeoIm Choi —<br>
-  You can explore (Resume), Team or Toy Projects, Study Notes, (Digital Art Gallery).<br><br>
-  <b>v1.0.0 (Release)</b>
+  You can explore Resume(with Password), Team or Toy Projects, Study Notes.<br><br>
+  <b>v1.1.0 (Release)</b>
   <br>
   <a href="https://egu1832.vercel.app"><strong>Open Live Demo »</strong></a>
   <br><br>
@@ -55,10 +55,9 @@ my-portfolio-site/
 
 ## Features
 - Interactive Profile Cat (Just for fun)
-- `Resume Download (Now Preparing)`
+- Resume Viewer & `Download (Now Preparing)`
 - Project Viewer
 - Study Notes Viewer
-- `Digital Art Gallery (Now Preparing)`
 
 
 ## Live Demo

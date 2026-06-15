@@ -69,7 +69,7 @@ export default function ArchiveSection() {
 
   const openNote = async (item: any) => {
     const slug = item.title.split("—")[0].trim();
-    const url = `/archive-md/${slug}.md`;   // public/archive-md 에 저장된 markdown
+    const url = `/content/posts/${slug}.md`;
 
     const res = await fetch(url);
     const text = await res.text();
@@ -88,7 +88,7 @@ export default function ArchiveSection() {
           <ArchiveCard
             key={item.title}
             {...item}
-            onViewNote={() => openNote(item)}   // ⬅ 추가
+            onViewNote={() => openNote(item)}
           />
         ))}
       </div>

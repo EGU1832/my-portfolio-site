@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+# build cache
+*.tsbuildinfo
+
 # production
 /build
 
@@ -39,3 +42,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Cursor
+.cursor/
+
+# Resume (private)
+assets/resume/

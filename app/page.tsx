@@ -1,11 +1,19 @@
 // app/page.tsx
+"use client";
+import { useState } from "react";
+import ResumeLoginModal from "@/components/ResumeLoginModal";
+
 import Image from "next/image";
 import ProjectCard from "@/components/ProjectCard";
 import ArchiveSection from "@/components/ArchiveSection";
 import ProfileCat from "@/components/ProfileCat";
 
 export default function Home() {
+  const [showResumeModal, setShowResumeModal] =
+  useState(false);
+
   return (
+    <>
     <main className="min-h-screen bg-[#0b0d0b] text-[#f2f3f1]">
       {/* 전체 컨테이너 */}
       <div className="mx-auto max-w-5xl px-4 pb-16">
@@ -51,11 +59,17 @@ export default function Home() {
 
             {/* CTA 버튼 */}
             <div className="mt-6 flex flex-wrap gap-3 text-sm">
-              <a
-                href="/resume.pdf"
+              <button
+                onClick={() => setShowResumeModal(true)}
                 className="rounded-full bg-[#4f6f58] px-5 py-2 font-medium text-[#f2f3f1] hover:bg-[#638b6d] transition-colors"
               >
-                Download Resume
+                Resume
+              </button>
+              <a
+                href="/posts"
+                className="rounded-full border border-[#4f6f58]/70 px-5 py-2 font-medium text-[#d6e4da] hover:bg-[#18251c] transition-colors"
+              >
+                Posts (Debug)
               </a>
               <a
                 href="https://github.com/EGU1832"
@@ -276,9 +290,9 @@ export default function Home() {
         <Divider />
 
         {/* ===== ARCHIVE SECTION ===== */}
-        <ArchiveSection />
+        {/* <ArchiveSection /> */}
 
-        <Divider />
+        {/* <Divider /> */}
 
         {/* ===== CONTACT SECTION ===== */}
         <section id="contact" className="py-12">
@@ -323,6 +337,13 @@ export default function Home() {
         </footer>
       </div>
     </main>
+    
+    <ResumeLoginModal
+      isOpen={showResumeModal}
+      onClose={() => setShowResumeModal(false)}
+    /> 
+    
+    </>
   );
 }
 
