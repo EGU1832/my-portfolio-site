@@ -48,3 +48,5 @@ next-env.d.ts
 
 # Resume (private)
 assets/resume/*
+.vercel
+.env*
