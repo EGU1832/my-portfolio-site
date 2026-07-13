@@ -301,12 +301,6 @@ export default function Home() {
         {/* ===== CONTACT SECTION ===== */}
         <section id="contact" className="py-12">
           <h2 className="section-title">Contact</h2>
-          <p className="mt-4 text-sm text-[#d5ded5]">
-            I&apos;m open to opportunities related to graphics, GPU programming,
-            or anything else.  
-            Feel free to reach out if you&apos;d like to collaborate or just
-            discuss about rendering, programming or cats!
-          </p>
 
           <div className="mt-6 space-y-2 text-sm">
             <p>
