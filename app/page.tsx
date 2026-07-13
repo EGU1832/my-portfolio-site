@@ -8,7 +8,7 @@ import ResumeCta from "@/components/ResumeCta";
 
 export default function Home() {
   // 이력서용 배포(SITE_MODE=resume)에서는 실제 프로필 사진을,
-  // 그 외 일상용 배포에서는 픽셀 고양이를 보여준다.
+  // 일상용 배포에서는 픽셀 고양이를 보여준다.
   const isResumeMode = process.env.SITE_MODE === "resume";
 
   return (
