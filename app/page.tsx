@@ -1,27 +1,26 @@
 // app/page.tsx
-"use client";
-import { useState } from "react";
-import ResumeLoginModal from "@/components/ResumeLoginModal";
-
 import Image from "next/image";
 import ProjectCard from "@/components/ProjectCard";
 import ArchiveSection from "@/components/ArchiveSection";
 import ProfileCat from "@/components/ProfileCat";
+import HeroPhoto from "@/components/HeroPhoto";
+import ResumeCta from "@/components/ResumeCta";
 
 export default function Home() {
-  const [showResumeModal, setShowResumeModal] =
-  useState(false);
+  // 이력서용 배포(SITE_MODE=resume)에서는 실제 프로필 사진을,
+  // 그 외 일상용 배포에서는 픽셀 고양이를 보여준다.
+  const isResumeMode = process.env.SITE_MODE === "resume";
 
   return (
-    <>
     <main className="min-h-screen bg-[#0b0d0b] text-[#f2f3f1]">
       {/* 전체 컨테이너 */}
       <div className="mx-auto max-w-5xl px-4 pb-16">
         {/* ===== HERO SECTION ===== */}
         <section className="flex flex-col gap-8 py-16 md:flex-row md:items-center">
-          {/* 왼쪽: 픽셀 고양이 */}
+          {/* 왼쪽: 프로필 이미지 (이력서용 사진 / 픽셀 고양이) */}
           <div className="relative flex flex-col items-center md:w-1/3">
-            <ProfileCat />
+            {isResumeMode ? <HeroPhoto /> : <ProfileCat />}
+
           </div>
 
           {/* 오른쪽: 소개 텍스트 */}
@@ -34,17 +33,20 @@ export default function Home() {
               <span className="text-[#9fd3a8]">SeoIm Choi</span>, a programmer
               working at the intersection of creativity and engineering.
             </h1>
+            {/*}
             <p className="mt-4 max-w-xl text-sm text-[#cbd5ce]">
               I build products end-to-end — from web backends and frontends to
               Android apps — and enjoy GPU-focused development with CUDA,
               PyTorch, and OpenGL. I also love structuring what I learn into
               clear, markdown-based documentation.
             </p>
+            */}
 
             {/* 키워드 */}
+            {/*
             <div className="mt-6 flex flex-wrap gap-2 text-xs">
               {[
-                "End-to-End Development",
+                "AI Inference Pipeline",
                 "GPU & Graphics Programming",
                 "Technical Documentation",
               ].map((tag) => (
@@ -56,15 +58,11 @@ export default function Home() {
                 </span>
               ))}
             </div>
+            */}
 
             {/* CTA 버튼 */}
             <div className="mt-6 flex flex-wrap gap-3 text-sm">
-              <button
-                onClick={() => setShowResumeModal(true)}
-                className="rounded-full bg-[#4f6f58] px-5 py-2 font-medium text-[#f2f3f1] hover:bg-[#638b6d] transition-colors"
-              >
-                Resume
-              </button>
+              <ResumeCta />
               <a
                 href="/posts"
                 className="rounded-full border border-[#4f6f58]/70 px-5 py-2 font-medium text-[#d6e4da] hover:bg-[#18251c] transition-colors"
@@ -87,6 +85,7 @@ export default function Home() {
         <Divider />
 
         {/* ===== ABOUT SECTION ===== */}
+        {/*
         <section id="about" className="py-12">
           <h2 className="section-title">About Me</h2>
 
@@ -109,8 +108,10 @@ export default function Home() {
         </section>
 
         <Divider />
+        */}
 
         {/* ===== SKILLS SECTION ===== */}
+        {/*
         <section id="skills" className="py-12">
           <h2 className="section-title">Skills</h2>
 
@@ -152,12 +153,14 @@ export default function Home() {
         </section>
 
         <Divider />
+        */}
 
         {/* ===== MAIN PROJECTS SECTION ===== */}
         <section id="projects" className="py-12">
           <h2 className="section-title">Main Projects</h2>
           <div className="mt-6 space-y-6">
             {/* ===================== 1) 2D Modeling Transformations Using OpenGL API ===================== */}
+            {/*
             <ProjectCard
               title="2D Modeling Transformations Using OpenGL API"
               description="Creative 2D modeling and animation using OpenGL affine transformations."
@@ -170,6 +173,7 @@ export default function Home() {
               videoHeight="auto"
               github="https://github.com/EGU1832/sg-opengl-2d-affine-transform"
             />
+            */}
 
             {/* ===================== 2) Jarvision ===================== */}
             <ProjectCard
@@ -337,13 +341,6 @@ export default function Home() {
         </footer>
       </div>
     </main>
-    
-    <ResumeLoginModal
-      isOpen={showResumeModal}
-      onClose={() => setShowResumeModal(false)}
-    /> 
-    
-    </>
   );
 }
 
