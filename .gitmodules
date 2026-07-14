@@ -1,0 +1,4 @@
+[submodule "content/obsidian"]
+	path = content/obsidian
+	url = https://github.com/EGU1832/obsidian-published-content.git
+	branch = main

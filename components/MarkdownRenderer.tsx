@@ -51,22 +51,8 @@ export default function MarkdownRenderer({ markdown }: { markdown: string }) {
     return defaultFence(tokens, idx, options, env, self);
   };
 
-  // GitHub RAW 이미지 변환
-  const transformImage = (html: string) =>
-    html.replace(/<img\s+[^>]*src=["']([^"']+)["'][^>]*>/gi, (match, src) => {
-      if (/https?:\/\//i.test(src)) return match;
-
-      let cleaned = src.replace(/^(\.*\/)+/, "");
-      if (!cleaned.startsWith("Docs/")) cleaned = `Docs/${cleaned}`;
-      cleaned = cleaned.replace(/ /g, "%20");
-
-      const rawURL = `https://raw.githubusercontent.com/EGU1832/archive/main/${cleaned}`;
-      return match.replace(src, rawURL);
-    });
-
   let processedMarkdown = normalizeMathEscapes(markdown);
   let html = md.render(processedMarkdown);
-  html = transformImage(html);
 
   return (
     <div

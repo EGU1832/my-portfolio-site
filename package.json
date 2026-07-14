@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run generate-posts && next dev",
     "build": "npm run generate-posts && next build",
     "start": "next start",
     "lint": "eslint",
     "convert-media": "py scripts/convert-media.py",
-    "generate-posts": "tsx scripts/generate-posts.ts"
+    "generate-posts": "tsx scripts/generator/posts-generator.ts"
   },
   "dependencies": {
     "@mdit/plugin-katex": "^0.23.2",
