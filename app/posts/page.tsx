@@ -7,7 +7,7 @@ type PostRecord = {
   title?: string;
   date?: string;
   tags?: string[] | string;
-  excerpt?: string;
+  description?: string;
 };
 
 export default async function PostsPage() {

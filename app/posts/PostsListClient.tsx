@@ -8,7 +8,7 @@ type PostRecord = {
   title?: string;
   date?: string;
   tags?: string[] | string;
-  excerpt?: string;
+  description?: string;
 };
 
 function formatDate(input: string): string {
@@ -119,8 +119,8 @@ export default function PostsListClient({ posts }: { posts: PostRecord[] }) {
                   </div>
                 ) : null}
 
-                {post.excerpt ? (
-                  <p className="mt-3 text-sm text-[#cbd5ce]">{post.excerpt}</p>
+                {post.description ? (
+                  <p className="mt-3 text-sm text-[#cbd5ce]">{post.description}</p>
                 ) : null}
               </li>
             );

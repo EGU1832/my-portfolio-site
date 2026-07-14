@@ -144,12 +144,26 @@ body {
    ChatGPT-style Code Blocks
 ------------------------------ */
 .markdown-body pre {
+  position: relative;
   background: #1e1e1e !important;
-  padding: 1rem;
+  padding: 1rem 1rem 1rem;
   border-radius: 8px;
   overflow-x: auto;
   margin: 1.2rem 0;
   border: 1px solid #333;
+}
+
+.markdown-body pre[data-lang]::before {
+  content: attr(data-lang);
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  font-family: Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  color: #9aa5a0;
+  pointer-events: none;
 }
 
 .markdown-body pre code {

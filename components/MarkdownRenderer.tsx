@@ -9,10 +9,14 @@ import "katex/dist/katex.min.css";
 export default function MarkdownRenderer({ markdown }: { markdown: string }) {
   // highlight.js
   const highlight = (str: string, lang: string) => {
-    if (lang && hljs.getLanguage(lang)) {
-      return `<pre><code class="hljs">${hljs.highlight(str, { language: lang }).value}</code></pre>`;
-    }
-    return `<pre><code class="hljs">${MarkdownIt().utils.escapeHtml(str)}</code></pre>`;
+    const code =
+      lang && hljs.getLanguage(lang)
+        ? hljs.highlight(str, { language: lang }).value
+        : MarkdownIt().utils.escapeHtml(str);
+    // Show the fence's language tag even when hljs doesn't recognize it,
+    // so the reader always knows what language a code block is.
+    const langAttr = lang ? ` data-lang="${MarkdownIt().utils.escapeHtml(lang)}"` : "";
+    return `<pre${langAttr}><code class="hljs">${code}</code></pre>`;
   };
 
   // MarkdownIt
