@@ -111,7 +111,7 @@ export default function PostsListClient({ posts }: { posts: PostRecord[] }) {
                     {tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full border border-[#4f6f58]/60 px-3 py-1 text-[#d1e4d5]"
+                        className="font-mono rounded-lg bg-[#4f6f58]/30 px-2 py-1 text-[#d1e4d5]"
                       >
                         {tag}
                       </span>

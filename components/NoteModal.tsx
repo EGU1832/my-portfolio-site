@@ -2,6 +2,7 @@
 "use client";
 
 import MarkdownRenderer from "./MarkdownRenderer";
+import ModalOverlay from "@/components/ui/ModalOverlay";
 
 export default function NoteModal({
   isOpen,
@@ -14,12 +15,10 @@ export default function NoteModal({
   title: string;
   markdown: string;
 }) {
-  if (!isOpen) return null;
-
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm">
+    <ModalOverlay isOpen={isOpen}>
       <div className="w-[90%] max-w-3xl h-[85vh] bg-[#0d120f] rounded-xl border border-[#4f6f58]/40 shadow-xl overflow-hidden flex flex-col">
-        
+
         <div className="flex justify-between items-center px-4 py-3 border-b border-[#4f6f58]/40 bg-[#121813]">
           <h2 className="text-sm font-semibold text-[#cfe8d6]">{title}</h2>
 
@@ -35,6 +34,6 @@ export default function NoteModal({
           <MarkdownRenderer markdown={markdown} />
         </div>
       </div>
-    </div>
+    </ModalOverlay>
   );
 }

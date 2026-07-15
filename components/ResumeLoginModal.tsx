@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import ModalOverlay from "@/components/ui/ModalOverlay";
 
 interface Props {
   isOpen: boolean;
@@ -16,8 +17,6 @@ export default function ResumeLoginModal({
   const [error, setError] = useState("");
 
   const router = useRouter();
-
-  if (!isOpen) return null;
 
   async function handleSubmit() {
     setError("");
@@ -41,7 +40,7 @@ export default function ResumeLoginModal({
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+    <ModalOverlay isOpen={isOpen}>
       <div className="w-full max-w-sm rounded-2xl bg-[#111712] p-6 border border-[#4f6f58]">
   
         <h2 className="text-lg font-semibold text-white">
@@ -95,6 +94,6 @@ export default function ResumeLoginModal({
         </form>
   
       </div>
-    </div>
+    </ModalOverlay>
   );
 }

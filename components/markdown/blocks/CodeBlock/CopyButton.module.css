@@ -1,0 +1,16 @@
+.button {
+  background: transparent;
+  border: 1px solid #3a3a3a;
+  border-radius: 4px;
+  color: #9aa5a0;
+  font-family: Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.button:hover {
+  color: #e6e6e6;
+  border-color: #555;
+}

@@ -1,0 +1,121 @@
+/* -----------------------------
+   ChatGPT Markdown Base
+------------------------------ */
+.markdownBody {
+  color: #e6e6e6;
+  font-size: 16px;
+  line-height: 1.65;
+  padding: 0.5rem 0;
+  overflow-wrap: break-word;
+}
+
+.markdownBody h1,
+.markdownBody h2,
+.markdownBody h3,
+.markdownBody h4 {
+  font-weight: 600;
+  margin: 0.8em 0.8em 0.4em 0;
+}
+
+.markdownBody h1 { font-size: 1.9rem; }
+.markdownBody h2 { font-size: 1.6rem; }
+.markdownBody h3 { font-size: 1.3rem; }
+
+.markdownBody h1 {
+  position: relative;
+
+  margin: 2rem 0;
+  padding: 1rem 1.2rem;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(79,111,88,.18),
+      rgba(79,111,88,.05) 45%,
+      transparent
+    );
+
+  backdrop-filter: blur(8px);
+}
+
+
+.markdownBody h2 {
+  margin: 2rem 0 1rem;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid transparent;
+
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    rgba(79,111,88,.35),
+    transparent
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  background-position: bottom;
+}
+
+.markdownBody p {
+  margin: -0.4em 0;
+}
+
+/* -----------------------------
+   Lists
+------------------------------ */
+.markdownBody ul,
+.markdownBody ol {
+   list-style-type : disc;
+  margin: 0.8em 0 0.8em 1.4em;
+}
+
+/* -----------------------------
+   Blockquote (ChatGPT style)
+------------------------------ */
+.markdownBody blockquote {
+  border-left: 4px solid #444;
+  padding-left: 1em;
+  margin-left: 0;
+  color: #aaa;
+  font-style: italic;
+}
+
+/* -----------------------------
+   Images
+------------------------------ */
+.markdownBody img {
+  margin: 1rem auto;
+  border-radius: 6px;
+  display: block;
+  max-width: 100%;
+}
+
+/* -----------------------------
+   Tables (ChatGPT style)
+------------------------------ */
+.markdownBody table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.markdownBody th,
+.markdownBody td {
+  border: 1px solid #444;
+  padding: 4px 8px;
+}
+
+.markdownBody th {
+  background: #2a2a2a;
+  font-weight: bold;
+}
+
+.markdownBody code {
+  font-family: Menlo, Consolas, monospace;
+  font-size: 0.95rem;
+  background: #2a2a2a;
+  padding: 2px 4px;
+  border-radius: 4px;
+  margin: 0 2px;
+}

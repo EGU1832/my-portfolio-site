@@ -16,9 +16,6 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
-
-    --resume-bg: white;
-    --resume-text: black;
   }
 }
 
@@ -28,12 +25,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* app/globals.css */
-
-.section-title {
-  @apply text-lg font-semibold tracking-wide text-[#e3f2e6];
-}
-
 /* -----------------------------
    Custom Scrollbar (Green Theme)
 ------------------------------ */
@@ -41,18 +32,19 @@ body {
 /* 전체 스크롤바 영역 */
 ::-webkit-scrollbar {
   width: 12px;
+  height: 12px;
 }
 
 /* 스크롤바 트랙 (배경) */
 ::-webkit-scrollbar-track {
-  background: #0B0D0B; /* 다크모드 전체 배경과 자연스럽게 통일 */
+  background: #0b0d0b /* 다크모드 전체 배경과 자연스럽게 통일 */
 }
 
 /* 스크롤바 핸들(thumb) */
 ::-webkit-scrollbar-thumb {
   background: #4F6F58;    /* 메인 포인트 초록색 계열 */
   border-radius: 6px;
-  border: 2px solid #0B0D0B; /* thumb가 배경에서 떠 보이도록 */
+  border: 2px solid #0b0d0b; /* thumb가 배경에서 떠 보이도록 */
 }
 
 /* hover 시 더 밝게 + 입체감 */
@@ -61,171 +53,5 @@ body {
 }
 
 ::-webkit-scrollbar-corner {
-  background: #0B0D0B; /* 모달 배경색과 동일 */
-}
-
-/* ======================================================
-   Modal Note — Custom Scrollbar
-   (노트 모달 내부 스크롤바만 따로 스타일 적용)
-====================================================== */
-
-.custom-scroll::-webkit-scrollbar {
-  width: 11px;
-  height: 11px;
-}
-
-.custom-scroll::-webkit-scrollbar-track {
-  background: #0D120F; /* 모달 배경과 동일하게 */
-}
-
-.custom-scroll::-webkit-scrollbar-thumb {
-  background: #4F6F58;  /* 당신이 지정한 그린톤 */
-  border-radius: 6px;
-  border: 2px solid #0D120F;
-}
-
-.custom-scroll::-webkit-scrollbar-thumb:hover {
-  background: #6A8A72;
-}
-
-.custom-scroll::-webkit-scrollbar-corner {
-  background: #0D120F; /* 하얀 직사각형 제거 + 모달 배경 통일 */
-}
-
-
-/* -----------------------------
-   ChatGPT Markdown Base
------------------------------- */
-.markdown-body {
-  color: #e6e6e6;
-  font-size: 16px;
-  line-height: 1.65;
-  padding: 0.5rem 0;
-  overflow-wrap: break-word;
-}
-
-.markdown-body h1,
-.markdown-body h2,
-.markdown-body h3,
-.markdown-body h4 {
-  font-weight: 600;
-  margin-top: 1.5em;
-  margin-bottom: 0.8em;
-}
-
-.markdown-body h1 { font-size: 1.9rem; }
-.markdown-body h2 { font-size: 1.6rem; }
-.markdown-body h3 { font-size: 1.3rem; }
-
-.markdown-body p {
-  margin: 0.8em 0;
-}
-
-/* -----------------------------
-   Lists
------------------------------- */
-.markdown-body ul,
-.markdown-body ol {
-  margin: 0.8em 0 0.8em 1.4em;
-}
-
-/* -----------------------------
-   Blockquote (ChatGPT style)
------------------------------- */
-.markdown-body blockquote {
-  border-left: 4px solid #444;
-  padding-left: 1em;
-  margin-left: 0;
-  color: #aaa;
-  font-style: italic;
-}
-
-/* -----------------------------
-   ChatGPT-style Code Blocks
------------------------------- */
-.markdown-body pre {
-  position: relative;
-  background: #1e1e1e !important;
-  padding: 1rem 1rem 1rem;
-  border-radius: 8px;
-  overflow-x: auto;
-  margin: 1.2rem 0;
-  border: 1px solid #333;
-}
-
-.markdown-body pre[data-lang]::before {
-  content: attr(data-lang);
-  position: absolute;
-  top: 0.5rem;
-  right: 0.75rem;
-  font-family: Menlo, Consolas, monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.05em;
-  text-transform: lowercase;
-  color: #9aa5a0;
-  pointer-events: none;
-}
-
-.markdown-body pre code {
-  font-family: Menlo, Consolas, monospace;
-  font-size: 0.95rem;
-  white-space: pre;
-  background: none !important;
-  padding: 0;
-  line-height: 1.5;
-}
-
-/* highlight.js background 제거 */
-.hljs {
-  background: transparent !important;
-  padding: 0 !important;
-}
-
-/* inline code */
-.markdown-body code {
-  background: rgba(255,255,255,0.12);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-family: Menlo, Consolas, monospace;
-  font-size: 0.9rem;
-}
-
-/* -----------------------------
-   Images
------------------------------- */
-.markdown-body img {
-  margin: 1rem auto;
-  border-radius: 6px;
-  display: block;
-  max-width: 100%;
-}
-
-/* -----------------------------
-   Tables (ChatGPT style)
------------------------------- */
-.markdown-body table {
-  border-collapse: collapse;
-  width: 100%;
-  margin: 1rem 0;
-}
-
-.markdown-body th,
-.markdown-body td {
-  border: 1px solid #444;
-  padding: 8px 12px;
-}
-
-.markdown-body th {
-  background: #2a2a2a;
-  font-weight: bold;
-}
-
-/* -----------------------------
-   MathJax (Matches ChatGPT)
------------------------------- */
-.math-display {
-  display: block;
-  text-align: center;
-  margin: 1.2rem 0;
-  font-size: 1.1rem;
+  background: transparent; /* 모달 배경색과 동일 */
 }

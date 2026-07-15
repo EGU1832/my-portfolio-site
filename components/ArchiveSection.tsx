@@ -4,6 +4,7 @@
 import { useState } from "react";
 import ArchiveCard from "./ArchiveCard";
 import NoteModal from "./NoteModal";
+import SectionTitle from "@/components/ui/SectionTitle";
 
 const archiveData = [
   {
@@ -81,7 +82,7 @@ export default function ArchiveSection() {
 
   return (
     <section id="archive" className="py-12">
-      <h2 className="section-title">Archive</h2>
+      <SectionTitle>Archive</SectionTitle>
 
       <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {archiveData.map((item) => (

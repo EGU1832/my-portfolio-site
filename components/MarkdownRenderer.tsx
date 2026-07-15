@@ -1,31 +1,25 @@
 import MarkdownIt from "markdown-it";
-import hljs from "highlight.js";
 import katex from "katex";
 import { katex as mdKatex } from "@mdit/plugin-katex";
+
+import { buildBlockTree } from "./markdown/tokenTree";
+import { renderBlocks } from "./markdown/render";
+import styles from "./MarkdownRenderer.module.css";
 
 import "highlight.js/styles/atom-one-dark.css";
 import "katex/dist/katex.min.css";
 
 export default function MarkdownRenderer({ markdown }: { markdown: string }) {
-  // highlight.js
-  const highlight = (str: string, lang: string) => {
-    const code =
-      lang && hljs.getLanguage(lang)
-        ? hljs.highlight(str, { language: lang }).value
-        : MarkdownIt().utils.escapeHtml(str);
-    // Show the fence's language tag even when hljs doesn't recognize it,
-    // so the reader always knows what language a code block is.
-    const langAttr = lang ? ` data-lang="${MarkdownIt().utils.escapeHtml(lang)}"` : "";
-    return `<pre${langAttr}><code class="hljs">${code}</code></pre>`;
-  };
-
   // MarkdownIt
+  // NOTE: no `highlight` option here anymore — registry.fence (CodeBlock)
+  // intercepts every fence token before md.renderer.render() ever runs,
+  // so markdown-it's own default fence rule (which is what calls
+  // `options.highlight`) is never reached for the non-math branch below.
   const md = new MarkdownIt({
     html: true,
     breaks: true,
     linkify: true,
     typographer: true,
-    highlight,
   });
 
   // KaTeX plugin
@@ -36,7 +30,11 @@ export default function MarkdownRenderer({ markdown }: { markdown: string }) {
   });
 
   function normalizeMathEscapes(md: string) {
-    return md.replace(/\$`([^`]+)`\$/g, (_match, inner) => `$${inner}$`);
+    return md
+      .replace(/\$`([^`]+)`\$/g, (_match, inner) => `$${inner}$`)
+      .replace(/\\begin{align}/g, "\\begin{align*}")
+      .replace(/\\end{align}/g, "\\end{align*}")
+      .replace(/\\ohm\b/g, "\\Omega");
   }
   
   // ChatGPT 스타일 ```math 지원
@@ -55,13 +53,14 @@ export default function MarkdownRenderer({ markdown }: { markdown: string }) {
     return defaultFence(tokens, idx, options, env, self);
   };
 
-  let processedMarkdown = normalizeMathEscapes(markdown);
-  let html = md.render(processedMarkdown);
+  const processedMarkdown = normalizeMathEscapes(markdown);
+  const env = {};
+  const tokens = md.parse(processedMarkdown, env);
+  const tree = buildBlockTree(tokens);
 
   return (
-    <div
-      className="markdown-body"
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
+    <div className={styles.markdownBody}>
+      {renderBlocks(tree, md, md.options, env)}
+    </div>
   );
 }

@@ -3,6 +3,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react"
+import Card from "@/components/ui/Card";
 
 type ProjectProps = {
   title: string;
@@ -102,8 +103,8 @@ export default function ProjectCard({
   };
 
   return (
-    <div className="rounded-2xl border border-[#4f6f58]/40 bg-[#101711] p-6 space-y-4">
-      
+    <Card className="space-y-4">
+
       {/* 아이콘 */}
       {icon && (
         <div className="relative h-14 w-14">
@@ -180,6 +181,6 @@ export default function ProjectCard({
           )}
         </div>
       )}
-    </div>
+    </Card>
   );
 }

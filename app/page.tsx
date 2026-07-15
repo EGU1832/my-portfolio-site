@@ -1,10 +1,12 @@
 // app/page.tsx
-import Image from "next/image";
 import ProjectCard from "@/components/ProjectCard";
 import ArchiveSection from "@/components/ArchiveSection";
 import ProfileCat from "@/components/ProfileCat";
 import HeroPhoto from "@/components/HeroPhoto";
 import ResumeCta from "@/components/ResumeCta";
+import Button from "@/components/ui/Button";
+import SectionTitle from "@/components/ui/SectionTitle";
+import Divider from "@/components/ui/Divider";
 
 export default function Home() {
   // 이력서용 배포(SITE_MODE=resume)에서는 실제 프로필 사진을,
@@ -63,20 +65,17 @@ export default function Home() {
             {/* CTA 버튼 */}
             <div className="mt-6 flex flex-wrap gap-3 text-sm">
               <ResumeCta />
-              <a
-                href="/posts"
-                className="rounded-full border border-[#4f6f58]/70 px-5 py-2 font-medium text-[#d6e4da] hover:bg-[#18251c] transition-colors"
-              >
+              <Button href="/posts" variant="outline">
                 Posts (Debug)
-              </a>
-              <a
+              </Button>
+              <Button
                 href="https://github.com/EGU1832"
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-[#4f6f58]/70 px-5 py-2 font-medium text-[#d6e4da] hover:bg-[#18251c] transition-colors"
+                variant="outline"
               >
                 GitHub
-              </a>
+              </Button>
             </div>
           </div>
         </section>
@@ -157,7 +156,7 @@ export default function Home() {
 
         {/* ===== MAIN PROJECTS SECTION ===== */}
         <section id="projects" className="py-12">
-          <h2 className="section-title">Main Projects</h2>
+          <SectionTitle>Main Projects</SectionTitle>
           <div className="mt-6 space-y-6">
             {/* ===================== 1) 2D Modeling Transformations Using OpenGL API ===================== */}
             {/*
@@ -225,7 +224,7 @@ export default function Home() {
 
         {/* ===== TOY PROJECTS SECTION ===== */}
         <section id="projects" className="py-12">
-          <h2 className="section-title">Toy Projects</h2>
+          <SectionTitle>Toy Projects</SectionTitle>
 
           <div className="mt-6 space-y-6">
 
@@ -300,7 +299,7 @@ export default function Home() {
 
         {/* ===== CONTACT SECTION ===== */}
         <section id="contact" className="py-12">
-          <h2 className="section-title">Contact</h2>
+          <SectionTitle>Contact</SectionTitle>
 
           <div className="mt-6 space-y-2 text-sm">
             <p>
@@ -335,37 +334,5 @@ export default function Home() {
         </footer>
       </div>
     </main>
-  );
-}
-
-/* ===== 재사용 컴포넌트들 ===== */
-
-function Divider() {
-  return (
-    <div className="my-4 h-px w-full bg-gradient-to-r from-transparent via-[#4f6f58]/40 to-transparent" />
-  );
-}
-
-function SkillCard({ title, items }: { title: string; items: string[] }) {
-  return (
-    <div className="rounded-2xl border border-[#4f6f58]/40 bg-[#111712] px-5 py-4">
-      <h3 className="text-sm font-semibold text-[#e2efe4]">{title}</h3>
-      <ul className="mt-3 space-y-1 text-xs text-[#c3d2c7]">
-        {items.map((item) => (
-          <li key={item} className="flex gap-2">
-            <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#7fb18b]" />
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-function GalleryImage({ src, alt }: { src: string; alt: string }) {
-  return (
-    <div className="relative h-40 w-full overflow-hidden rounded-2xl border border-[#4f6f58]/35 bg-[#151e18]">
-      <Image src={src} alt={alt} fill className="object-cover" />
-    </div>
   );
 }
