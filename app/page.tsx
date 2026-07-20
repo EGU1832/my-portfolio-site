@@ -328,8 +328,29 @@ export default function Home() {
         {/* ===== FOOTER ===== */}
         <footer className="mt-8 border-t border-[#4f6f58]/40 pt-4 text-xs text-[#9aa69c]">
           <p>
-            © {new Date().getFullYear()} EGU1832. Built with Next.js.  
+            © {new Date().getFullYear()} EGU1832. Built with Next.js.
             Theme inspired by calm green fields & a black cat.
+          </p>
+          <p className="mt-2">
+            &quot;
+            <a
+              href="https://skfb.ly/6YPwH"
+              target="_blank"
+              rel="noreferrer"
+              className="underline-offset-2 hover:underline"
+            >
+              An Animated Cat
+            </a>
+            &quot; by Evil_Katz is licensed under{" "}
+            <a
+              href="http://creativecommons.org/licenses/by/4.0/"
+              target="_blank"
+              rel="noreferrer"
+              className="underline-offset-2 hover:underline"
+            >
+              Creative Commons Attribution
+            </a>
+            .
           </p>
         </footer>
       </div>
