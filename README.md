@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://egu1832.vercel.app">
+  <a href="https://seoimchoi.vercel.app">
     <img src="assets/png/icon.png" alt="My Portfolio Site Icon" width="180" style="border-radius: 20px;">
   </a>
 </p>
@@ -11,9 +11,9 @@
   You can explore Resume(with Password), Team or Toy Projects, Study Notes.<br><br>
   <b>v1.1.0 (Release)</b>
   <br>
-  <a href="https://egu1832.vercel.app"><strong>Open Live Demo »</strong></a>
+  <a href="https://seoimchoi.vercel.app"><strong>Open Live Demo »</strong></a>
   <br><br>
-  <a href="https://github.com/EGU1832/my-portfolio-site/issues/new?labels=bug">Report bug</a>
+  <a href="https://github.com/grapeve12/my-portfolio-site/issues/new?labels=bug">Report bug</a>
   ·
   <a href="https://github.com/EGU1832/my-portfolio-site/issues/new?labels=enhancement">Request feature</a>
 </p>
